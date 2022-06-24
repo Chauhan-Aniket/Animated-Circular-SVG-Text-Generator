@@ -1,0 +1,28 @@
+@import url(https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600;800&display=swap);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
+}
+
+body {
+  background: #efefef;
+}
+
+/* Set Scrollbar width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* set Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* set Thumb */
+::-webkit-scrollbar-thumb {
+  background: #0D99FF;
+  border-radius: 5px;
+}
