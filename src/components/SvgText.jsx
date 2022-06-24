@@ -47,6 +47,7 @@ const SvgText = (props) => {
 							? "overline"
 							: "normal"
 					}
+					letterSpacing={props.textSpace}
 				>
 					<textPath id="textPath" startOffset="0" xlinkHref="#txt-path">
 						{props.text || "Circular SVG Text Generator"}

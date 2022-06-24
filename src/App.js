@@ -14,6 +14,7 @@ const App = () => {
 	const [speed, setSpeed] = useState(-5);
 	const [color, setColor] = useState("#0D99FF");
 	const [size, setSize] = useState("50");
+	const [textSpace, setTextSpace] = useState(0);
 	const [toggle, setToggle] = useState(true);
 	const [isBold, setBold] = useState(false);
 	const [isItalic, setItalic] = useState(false);
@@ -44,10 +45,13 @@ const App = () => {
 		setRadius(e.target.value);
 	};
 
+	const spaceSlider = (e) => {
+		setTextSpace(e.target.value);
+	};
+
 	const boldStyle = (e) => {
 		setBold(e.target.checked);
 	};
-
 	const italicStyle = (e) => {
 		setItalic(e.target.checked);
 	};
@@ -73,6 +77,8 @@ const App = () => {
 				color={color}
 				inputToggle={inputToggle}
 				toggle={toggle}
+				spaceSlider={spaceSlider}
+				textSpace={textSpace}
 				boldStyle={boldStyle}
 				isBold={isBold}
 				italicStyle={italicStyle}
@@ -88,6 +94,7 @@ const App = () => {
 				radius={radius}
 				color={color}
 				speed={speed}
+				textSpace={textSpace}
 				isBold={isBold}
 				isItalic={isItalic}
 				isStrikethrough={isStrikethrough}
