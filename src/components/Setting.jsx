@@ -15,6 +15,7 @@ import {
 	Label,
 	IconBg,
 } from "./Styles";
+import Tabs from "./Tabs";
 
 const Setting = (props) => {
 	const toggleRef = useRef();
@@ -37,27 +38,34 @@ const Setting = (props) => {
 			</Label>
 
 			<Content id="contentSection">
-				<TextInput inputText={props.inputText} text={props.text} />
-				<StyleContent>
-					<TextStyle
-						boldStyle={props.boldStyle}
-						isBold={props.isBold}
-						italicStyle={props.italicStyle}
-						isItalic={props.isItalic}
-						strikethroughStyle={props.strikethroughStyle}
-						isStrikethrough={props.isStrikethrough}
-						overlineStyle={props.overlineStyle}
-						isOverline={props.isOverline}
-					/>
-					<TextColor inputColor={props.inputColor} color={props.color} />
-				</StyleContent>
-				<TextSize sizeSlider={props.sizeSlider} size={props.size} />
-				<TextSpeed speedSlider={props.speedSlider} speed={props.speed} />
-				<TextRadius inputSlider={props.inputSlider} radius={props.radius} />
-				<TextSpacing
-					spaceSlider={props.spaceSlider}
-					textSpace={props.textSpace}
-				/>
+				<Tabs>
+					<div label="Customize">
+						<TextInput inputText={props.inputText} text={props.text} />
+						<StyleContent>
+							<TextStyle
+								boldStyle={props.boldStyle}
+								isBold={props.isBold}
+								italicStyle={props.italicStyle}
+								isItalic={props.isItalic}
+								strikethroughStyle={props.strikethroughStyle}
+								isStrikethrough={props.isStrikethrough}
+								overlineStyle={props.overlineStyle}
+								isOverline={props.isOverline}
+							/>
+							<TextColor inputColor={props.inputColor} color={props.color} />
+						</StyleContent>
+						<TextSize sizeSlider={props.sizeSlider} size={props.size} />
+						<TextSpeed speedSlider={props.speedSlider} speed={props.speed} />
+						<TextRadius inputSlider={props.inputSlider} radius={props.radius} />
+						<TextSpacing
+							spaceSlider={props.spaceSlider}
+							textSpace={props.textSpace}
+						/>
+					</div>
+					<div label="Code">
+						After 'while, <em>Crocodile</em>!
+					</div>
+				</Tabs>
 			</Content>
 		</Container>
 	);
