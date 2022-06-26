@@ -16,6 +16,7 @@ import {
 	IconBg,
 } from "./Styles";
 import Tabs from "./Tabs";
+import Code from "./Code";
 
 const Setting = (props) => {
 	const toggleRef = useRef();
@@ -63,7 +64,18 @@ const Setting = (props) => {
 						/>
 					</div>
 					<div label="Code">
-						After 'while, <em>Crocodile</em>!
+						<Code
+							text={props.text}
+							isBold={props.isBold}
+							isItalic={props.isItalic}
+							isStrikethrough={props.isStrikethrough}
+							isOverline={props.isOverline}
+							color={props.color}
+							size={props.size}
+							speed={props.speed}
+							radius={props.radius}
+							textSpace={props.textSpace}
+						/>
 					</div>
 				</Tabs>
 			</Content>
