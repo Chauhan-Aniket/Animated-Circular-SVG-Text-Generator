@@ -129,6 +129,14 @@ export const RangeSlider = styled.input.attrs({ type: "range" })`
 	}
 `;
 
+const fixedClipboard = {
+	position: "fixed",
+	top: 40,
+	right: 32,
+	background: blurColor,
+	width: "30px",
+};
+
 export const IconBg = styled.div`
 	display: grid;
 	place-items: center;
@@ -138,6 +146,7 @@ export const IconBg = styled.div`
 	height: 35px;
 	border-radius: 0.2rem;
 	cursor: pointer;
+	${(props) => (props.fixed ? fixedClipboard : "none")}
 
 	@media screen and (min-width: 1400px) {
 		width: ${(props) => (props.primary ? "4.75vw" : "2.75vw")};
@@ -257,3 +266,29 @@ export const StyleContent = styled.div`
 	justify-content: space-between;
 	align-items: center;
 `;
+
+export const CodeSection = styled.section`
+	position: relative;
+	color: ${lightColor};
+	background: ${darkGrayColor};
+	height: 460px;
+	font-size: 0.75rem;
+	font-family: "Courier New", Courier, monospace;
+	letter-spacing: 0.5px;
+	overflow-y: scroll;
+	border-radius: 0.5rem;
+`;
+
+export const clipboardStyle = {
+	display: "grid",
+	placeItems: "center",
+	background: "transparent",
+	color: lightColor,
+	border: "none",
+	cursor: "pointer",
+};
+
+export const copySize = {
+	width: 20,
+	height: 20,
+};
