@@ -2,11 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { materialOceanic } from "react-syntax-highlighter/dist/esm/styles/prism";
+import Clipboard from "react-clipboard.js";
+import { IconCopy } from "@tabler/icons";
+import { IconBg } from "./Styles";
+
+const bgColor = "#2c2c2c";
+const elColor = "#efefef";
 
 const CodeSection = styled.section`
-	color: #efefef;
-	background: #2c2c2c;
-	height: 450px;
+	position: relative;
+	color: ${elColor};
+	background: ${bgColor};
+	height: 400px;
 	font-size: 0.75rem;
 	font-family: "Courier New", Courier, monospace;
 	letter-spacing: 0.5px;
@@ -65,6 +72,21 @@ const Code = (props) => {
 				>
 					{svgCode}
 				</SyntaxHighlighter>
+				<IconBg style={{ position: "fixed", top: 40, right: 32 }}>
+					<Clipboard
+						data-clipboard-text={svgCode}
+						style={{
+							display: "grid",
+							placeItems: "center",
+							background: "transparent",
+							color: elColor,
+							border: "none",
+							cursor: "pointer",
+						}}
+					>
+						<IconCopy />
+					</Clipboard>
+				</IconBg>
 			</CodeSection>
 		</>
 	);
