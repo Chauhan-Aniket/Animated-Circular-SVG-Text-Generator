@@ -95,7 +95,7 @@ export const ToggleBtn = styled.input.attrs({ type: "checkbox" })`
 export const RangeSlider = styled.input.attrs({ type: "range" })`
 	appearance: none;
 	outline: 0;
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 	background: ${darkGrayColor};
 	width: 100%;
 	height: 0.5rem;
@@ -122,8 +122,8 @@ export const RangeSlider = styled.input.attrs({ type: "range" })`
 		margin-bottom: 2.5vw;
 		height: 0.5vw;
 		::-webkit-slider-thumb {
-			width: 1vw;
-			height: 1vw;
+			width: 1.1vw;
+			height: 1.1vw;
 			border-radius: 0.15vw;
 		}
 	}
@@ -146,19 +146,21 @@ export const IconBg = styled.div`
 	height: 35px;
 	border-radius: 0.2rem;
 	cursor: pointer;
-	${(props) => (props.fixed ? fixedClipboard : "none")}
+	${(props) => (props.fixed ? fixedClipboard : {})}
 
 	@media screen and (min-width: 1400px) {
 		width: ${(props) => (props.primary ? "4.75vw" : "2.75vw")};
 		height: 2.75vw;
 		border-radius: 0.3vw;
+		${(props) =>
+			props.fixed ? { top: "5vh", right: "2vw", width: "2.25vw" } : {}}
 	}
 `;
 
 export const Input = styled.input`
 	outline: none;
 	border: none;
-	margin-bottom: 2rem;
+	margin-bottom: 1.5rem;
 	padding: 1.2rem 1rem;
 	width: 100%;
 	background: ${darkGrayColor};
@@ -182,7 +184,7 @@ export const Input = styled.input`
 export const Label = styled.label`
 	display: ${(props) => (props.toggle ? "none" : "inline-block")};
 	margin: ${(props) => (props.toggle ? "1rem" : 0)};
-	margin-bottom: ${(props) => (props.icon ? 0 : "0.8rem")};
+	margin-bottom: ${(props) => (props.icon ? 0 : "0.75rem")};
 	color: ${lightColor};
 	font-size: 0.95rem;
 	letter-spacing: 0.25px;
@@ -190,6 +192,10 @@ export const Label = styled.label`
 
 	& > div {
 		transition: ${transition};
+		& > svg {
+			width: 20px;
+			height: 20px;
+		}
 	}
 
 	@media screen and (max-width: 672px) {
@@ -198,12 +204,12 @@ export const Label = styled.label`
 
 	@media screen and (min-width: 1400px) {
 		margin: ${(props) => (props.toggle ? "1vw" : 0)};
-		margin-bottom: ${(props) => (props.icon ? 0 : "1.2vw")};
-		font-size: 1.1vw;
+		margin-bottom: ${(props) => (props.icon ? 0 : "1.5vw")};
+		font-size: 1.2vw;
 		letter-spacing: 0.45px;
 		& > div svg {
-			width: 1.5vw;
-			height: 1.5vw;
+			width: 1.75vw;
+			height: 1.75vw;
 		}
 	}
 `;
@@ -247,7 +253,7 @@ export const BoxIcon = styled.div`
 
 export const StyleContainer = styled.div`
 	display: block;
-	margin-bottom: 1.75rem;
+	margin-bottom: 1.5rem;
 	padding: 0.7rem;
 	width: fit-content;
 	background: ${darkGrayColor};
@@ -277,18 +283,64 @@ export const CodeSection = styled.section`
 	letter-spacing: 0.5px;
 	overflow-y: scroll;
 	border-radius: 0.5rem;
+	& > div button {
+		display: grid;
+		place-items: center;
+		border: none;
+		color: ${lightColor};
+		background: transparent;
+		cursor: pointer;
+
+		& > svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+	@media screen and (min-width: 1400px) {
+		font-size: 0.85vw;
+		height: calc(75vh - 40px);
+
+		& > div button {
+			& > svg {
+				width: 1.35vw;
+				height: 1.35vw;
+			}
+		}
+	}
 `;
 
-export const clipboardStyle = {
-	display: "grid",
-	placeItems: "center",
-	background: "transparent",
-	color: lightColor,
-	border: "none",
-	cursor: "pointer",
-};
+export const BtnTab = styled.p`
+	position: absolute;
+	bottom: 25px;
+	left: 25px;
+	padding: 0.8rem;
+	width: 120px;
+	color: #efefef;
+	display: grid;
+	place-items: center;
+	font-size: 0.9rem;
+	border-radius: 0.5rem;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	background: ${(props) =>
+		props.className === "tab-list-item tab-list-active"
+			? "#0d99ff"
+			: "#2c2c2c"};
+	cursor: pointer;
 
-export const copySize = {
-	width: 20,
-	height: 20,
-};
+	& + P {
+		left: 190px;
+	}
+
+	@media screen and (min-width: 1400px) {
+		bottom: calc(2.5vw);
+		left: 1.5vw;
+		padding: 1vw;
+		font-size: 1.05vw;
+		width: 9vw;
+
+		& + P {
+			left: calc(100% - 10.5vw);
+		}
+	}
+`;
